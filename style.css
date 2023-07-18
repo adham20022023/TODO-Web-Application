@@ -99,8 +99,9 @@
     cursor: pointer;
   }
   
-  .fa-sharp.fa-regular.fa-circle-check,.fa-solid-fa-circle-check fa-lg {
-    font-size: 24px;
+  .fa-sharp.fa-regular.fa-circle-check,.fa-solid.fa-circle-check.fa-lg {
+    font-size: 26px;
+    cursor:pointer;
     color: #eb770a;
   }
   
@@ -111,4 +112,7 @@
   #inputbox:focus {
     background-color: #eb770a24;
   }
+::selection{
+  background-color: #eb770a7c;
+}
 

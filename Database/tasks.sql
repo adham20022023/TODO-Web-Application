@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2023 at 02:22 AM
+-- Generation Time: Jul 18, 2023 at 02:15 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -29,16 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tasks` (
   `Task` varchar(100) DEFAULT NULL,
-  `status` varchar(5) NOT NULL,
+  `status` bit(1) NOT NULL,
   `ID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tasks`
---
-
--- INSERT INTO `tasks` (`Task`, `status`, `ID`) VALUES
--- ('Adham Elganzoury', 'YES', 52);
 
 --
 -- Indexes for dumped tables
@@ -58,7 +51,7 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

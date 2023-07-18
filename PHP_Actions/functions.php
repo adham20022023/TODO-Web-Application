@@ -1,11 +1,11 @@
 <?php
 require 'config.php';
 function addtask($task){
-    $active='NO';
+    $active=0;
     global $conn;
     $sql="insert into tasks(task,status) values(?,?);";
     $stmt=$conn->prepare($sql);
-    $stmt->bind_param("ss",$task,$active);
+    $stmt->bind_param("sb",$task,$active);
     $stmt->execute();
     $stmt->close();
     $conn->close();
@@ -27,13 +27,20 @@ function view_tasks(){
         return $tasks;
     }
 }
-function check($id){
+function check($id,$status) {
     global $conn;
-    $sql="update tasks set status='YES' where id=?";
-    $stmt=$conn->prepare($sql);
-    $stmt->bind_param("i",$id);
+    $status=!$status; // toggle
+    // Update database record with new status
+    $sql = "UPDATE tasks SET status = ? WHERE ID = ?";
+    $stmt = $conn->prepare($sql);
+    
+    // Bind parameters (replaced values above) and execute update
+    $stmt->bind_param('si', $status, $id);
     $stmt->execute();
+    
+    // Close all statements
     $stmt->close();
+    $conn->close();
 }
 function deletetask($id){
     global $conn;

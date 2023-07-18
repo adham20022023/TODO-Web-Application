@@ -17,7 +17,7 @@ $tasks=view_tasks();
         <form action="PHP_Actions/add_task.php" method="POST">
         <div class='input-container'>
             
-            <input <?php if(!empty($_GET['error'])):?>style="border:2px dashed orange" value="Empty Field"<?php endif;?>   type="text" name="task" id="inputbox" >
+            <input required <?php if(!empty($_GET['error'])):?>style="border:2px dashed orange" value="" <?php endif;?>   type="text" name="task" id="inputbox" >
             <button type="submit" name="add" id="add">ADD</button>
         </div>
         </form>
@@ -28,12 +28,13 @@ $tasks=view_tasks();
                 
                 <p><?php echo $task['Task'] ?></p>
                 <form action="PHP_Actions/check.php" method="POST">
-                        <?php if($task['status']=="NO"): ?>
+                        <?php if($task['status']==0): ?>
                         <button type="submit" name="check" id="check" value='check'><i class="fa-sharp fa-regular fa-circle-check fa-lg" style="color: #eb770a;"></i></button>
                         <?php else: ?>
-                            <i style="color: #eb770a;" class="fa-solid fa-circle-check fa-lg"></i>
+                            <button type="submit" name="check" id="check" value='check'><i class="fa-solid fa-circle-check fa-lg" style="color: #eb770a;"></i></button>
                         <?php endif; ?>
                         <input type="hidden" name="id" value="<?php echo $task['ID'] ?>">
+                        <input type="hidden" name="status" value="<?php echo $task['status'] ?>" style="display:none">
                 </form>
                 <form action="PHP_Actions/delete.php" method="POST">
                     <button type="submit" name="delete" id="Delete"><i style="color:orange" class="fa-solid fa-trash"></i></button>
