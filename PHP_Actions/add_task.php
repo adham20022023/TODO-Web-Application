@@ -7,7 +7,9 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
             header("location:../index.php?error=red");
             exit();
         }
-        addtask($task);
+        session_start();
+        $user_id=$_SESSION['userid'];
+        addtask($task,$user_id);
         header("location:../index.php");
         exit();
     }

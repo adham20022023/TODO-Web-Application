@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  .top-heading{
+    color:#eb770a;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .top-heading {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .input-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  #inputbox {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(246, 170, 83, 0.562);
+
+    background-color: #f8f8f8;
+    transition: background-color 0.3s ease-in-out;
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out;
+    -ms-transition: background-color 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out;
+}
+  #inputbox {
+    outline: none;
+    border:none;
+    transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+}  
+  #add {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d1d1d1;
+    color: #eb770a;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -ms-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+}
+  
+  #add:hover {
+    background-color:#eb770a ;
+    color: #ffffff;
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .item p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  #check,
+  #Delete {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .fa-sharp.fa-regular.fa-circle-check,.fa-solid.fa-circle-check.fa-lg {
+    font-size: 26px;
+    cursor:pointer;
+    color: #eb770a;
+  }
+  
+  .fa-solid.fa-trash {
+    font-size: 24px;
+    color: #eb770a;
+  }
+  #inputbox:focus {
+    background-color: #eb770a24;
+  }
+::selection{
+  background-color: #eb770a7c;
+}
+
