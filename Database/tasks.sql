@@ -38,8 +38,6 @@ CREATE TABLE `tasks` (
 -- Dumping data for table `tasks`
 --
 
-INSERT INTO `tasks` (`Task`, `status`, `ID`, `user_id`) VALUES
-('332', b'1', 112, 8);
 
 --
 -- Indexes for dumped tables

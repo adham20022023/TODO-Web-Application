@@ -15,7 +15,26 @@
       <div class="main">
    <form action="PHP_Actions/register.php" method="POST" >
       <h3>Create New Account</h3>
+      <?php if(isset($_GET['red'])){
+         echo "<style>";
+         echo <<< heredoc
+            .name{
+               border-color:red;
+            }
+         heredoc;
+         echo "</style>";
+      }?>
       <input type="text" name="name" required placeholder="User Name" class="name">
+      <!-- if password1 not equal password2  -->
+      <?php if(isset($_GET['error'])){
+         echo "<style>";
+         echo <<< heredoc
+            .password{
+               border-color:red;
+            }
+         heredoc;
+         echo "</style>";
+      }?>
       <input type="password" name="password" required placeholder="Password" class="password">
       <input type="password" name="cpassword" required placeholder="Confirm Password" class="password">
       <input type="submit" name="submit" class="btn" value="Create account">

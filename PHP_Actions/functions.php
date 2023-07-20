@@ -54,17 +54,21 @@ function deletetask($id){
 }
 function check_login($username,$password ){
     global $conn;
-    $sql= "select * from users where username=? and password=?";
+    $sql= "select * from users where username=?";
     $stmt=$conn->prepare($sql);
-    $stmt->bind_param('ss',$username,$password);
+    $stmt->bind_param('s',$username);
     $stmt->execute();
     $result = $stmt->get_result(); // get a mysqli_result object
     $stmt->close();
     $conn->close();
     if($result->num_rows>0){
         $row=$result->fetch_assoc();
+        $hashed_password=$row['password'];
         $id= $row['userid'];
-        return $id;
+        if(password_verify($password,$hashed_password)){
+            return $id;
+        }
+        return false;
     }
     else{
         return false;
@@ -72,14 +76,36 @@ function check_login($username,$password ){
 }
 function create_user($username,$password){
     global $conn;
+    $exists=check_if_user_already_exists($username);
+    if($exists){
+        return false;
+    }
+
+    else{
     $sql="insert into users(username,password) values(?,?)";
     $stmt=$conn->prepare($sql);
+    $password=password_hash($password,PASSWORD_DEFAULT);
     $stmt->bind_param("ss",$username,$password);
     $stmt->execute();
     $stmt->close();
     $conn->close();
+    return true;
+    }
 }
-
+function check_if_user_already_exists($username){
+    global $conn;
+    $sql ="select * from users where username=?";
+    $stmt=$conn->prepare($sql);
+    $stmt->bind_param('s',$username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows > 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
 
 
